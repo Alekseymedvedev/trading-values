@@ -11,7 +11,7 @@ const ChooseSection = ({category}:any) => {
     return (
      <>
          <Link href='/'>
-             <Button>HOME</Button>
+             <Button blue={true}>HOME</Button>
          </Link>
          <div className="flex">
              <PetCategoriesList />

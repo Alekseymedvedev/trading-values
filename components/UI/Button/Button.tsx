@@ -5,16 +5,19 @@ interface T {
     children?: string
     plus?: boolean
     active?: boolean | string
-
+    blue?:boolean
 }
 
-const Button: FC<T> = ({children,plus,active}) => {
+const Button: FC<T> = ({children,plus,active,blue}) => {
     const buttonClass = [cls.button]
     if (plus) {
         buttonClass.push(cls.plus)
     }
     if (active) {
         buttonClass.push(cls.active)
+    }
+    if (blue) {
+        buttonClass.push(cls.blue)
     }
     return (
         <button className={buttonClass.join(' ')}>

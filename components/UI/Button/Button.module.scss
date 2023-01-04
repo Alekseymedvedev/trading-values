@@ -33,6 +33,14 @@
       background-color: $orange;
     }
 }
+.blue {
+  max-width: 300px;
+  margin-bottom: 56px;
+  background-color: $redLight ;
+    .bg {
+      background-color: $red;
+    }
+}
 
 .plus {
   display: flex;
