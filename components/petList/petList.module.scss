@@ -1,0 +1,30 @@
+@import "styles/colors";
+.list{
+  width: 100%;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  background-color: $blueLight;
+  border-radius: 10px;
+
+}
+.item{
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.name{
+  font-size: 22px;
+  font-weight: 700;
+}
+.inner{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

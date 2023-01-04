@@ -1,0 +1,58 @@
+@import "styles/colors";
+
+.button {
+  width: 100%;
+  padding: 16px;
+  background-color: $green;
+  border-radius: 10px;
+  font-size: 28px;
+  color: #fff;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  overflow: hidden;
+
+  svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  &:hover {
+    bottom: 0;
+
+    .bg {
+      bottom: 5px;
+    }
+  }
+}
+
+.active {
+  background-color: $orangeLight;
+    .bg {
+      background-color: $orange;
+    }
+}
+
+.plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0px;
+  right: 0;
+  left: 0;
+}
+
+.bg {
+  height: 100%;
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  background-color: $greenLight;
+  border-radius: 10px;
+  z-index: -1;
+  transition: all .3s;
+}
