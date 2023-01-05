@@ -33,12 +33,14 @@
       background-color: $orange;
     }
 }
-.blue {
+.white {
   max-width: 300px;
   margin-bottom: 56px;
-  background-color: $redLight ;
+  background-color: #fff ;
+  text-align: center;
+  color: #000;
     .bg {
-      background-color: $red;
+      background-color: #fff;
     }
 }
 

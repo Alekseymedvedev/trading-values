@@ -1,14 +1,15 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import cls from './Button.module.scss'
 
 interface T {
     children?: string
     plus?: boolean
     active?: boolean | string
-    blue?:boolean
+    white?:boolean
 }
 
-const Button: FC<T> = ({children,plus,active,blue}) => {
+const Button: FC<T> = ({children,plus,active,white}) => {
+    const [audio,setAudio]= useState(false)
     const buttonClass = [cls.button]
     if (plus) {
         buttonClass.push(cls.plus)
@@ -16,11 +17,12 @@ const Button: FC<T> = ({children,plus,active,blue}) => {
     if (active) {
         buttonClass.push(cls.active)
     }
-    if (blue) {
-        buttonClass.push(cls.blue)
+    if (white) {
+        buttonClass.push(cls.white)
     }
     return (
-        <button className={buttonClass.join(' ')}>
+        <button className={buttonClass.join(' ')} onClick={()=>setAudio(true)}>
+            {audio && <audio autoPlay={true} src="/audio/btn-sound-1.mp3"></audio>}
             {
                 children ?
                     children

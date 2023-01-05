@@ -4,28 +4,25 @@ import cls from './Select.module.scss'
 interface T {
     value: number
     onChange: (e: any) => void
-    regular: { value: number, name: string } | undefined
-    neon: { value: number, name: string } | undefined
-    megaNeon: { value: number, name: string } | undefined
+    choices: {
+        value: string | number | undefined,
+        neon: string | number | undefined,
+        mega: string | number | undefined
+    } | undefined
 }
 
-const Select: FC<T> = ({
-                           value,
-                           onChange,
-                           regular,
-                           neon,
-                           megaNeon
-                       }) => {
+const Select: FC<T> = ({value, onChange, choices}) => {
     return (
         <select
             value={value}
-            onChange={(e) => {onChange(e.target.value)
-                console.log(e.target.value) }}
+            onChange={(e) => {
+                onChange(e.target.value)
+            }}
             className={cls.select}
         >
-            <option value={regular?.value}>{regular?.name}</option>
-            <option value={neon?.value}>{neon?.name}</option>
-            <option value={megaNeon?.value}>{megaNeon?.name}</option>
+            {choices?.value && <option value={choices?.value}>Regular</option>}
+            {choices?.neon && <option value={choices?.neon}>Neon</option>}
+            {choices?.mega && <option value={choices?.mega}>Mega Neon</option>}
         </select>
     );
 };

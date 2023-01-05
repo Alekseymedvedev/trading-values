@@ -1,21 +1,20 @@
 import MainLayout from "../../layout/mainLayout";
 import ChooseSection from "../../components/ chooseSection/chooseSection";
 import React from "react";
-import {PetCategoriesArr} from "../../state/state";
+import {petArr} from "../../state/petState";
 
 export async function getServerSideProps(context: any) {
     const id = context.query.id
-    const res = PetCategoriesArr.filter(item => item.name == id)
-    const [data] = res
+    const res = petArr.filter(item => item.parent === id)
     return {
-        props: {category: data},
+        props: {petList: res},
     }
 }
 
-const PetCategory = ({category}: any) => {
+const PetCategory = ({petList}: any) => {
     return (
         <MainLayout title="Главная страница">
-            <ChooseSection category={category.pet}/>
+            <ChooseSection petList={petList}/>
         </MainLayout>
     );
 };

@@ -8,6 +8,10 @@ import Image from "next/image";
 import img from '../../images/trade-circle.png'
 import TextBlock from "../textBlock/textBlock";
 import Social from "../social/social";
+import Modal from "../modal/modal";
+import Select from "../UI/Select/Select";
+import InputCheckbox from "../UI/inputCheckbox/inputCheckbox";
+import Link from "next/link";
 
 interface T {
     children?: any
@@ -17,6 +21,8 @@ const CompareSection: FC<T> = ({children}) => {
     const {seletedUserPets, seletedGeneralPets} = useAppSelector(state => state.selectedPetsReducer)
     const [userWidth, setUserWidth] = useState(50)
     const [generalWidth, setGeneralWidth] = useState(50)
+    const [modalVisible, setModalVisible] = useState(false)
+    const [modalSmile, setModalSmile] = useState(['neutral.png', 'Fair'])
 
     function compareHandler() {
         let userValue = 1;
@@ -32,13 +38,22 @@ const CompareSection: FC<T> = ({children}) => {
         let sum = +userValue + +generalValue;
         let a = +userValue / +sum * 100
         let b = +generalValue / +sum * 100
+        if (a > b) {
+            setModalSmile(['sad.png'])
+        } else if (a < b) {
+            setModalSmile(['excited.png', 'Big Win!'])
+        }
         setUserWidth(a)
         setGeneralWidth(b)
+        setModalVisible(true)
     }
 
+    const modalHandler = (value: boolean) => {
+        setModalVisible(value)
+    }
     return (
         <section className={cls.section}>
-<Social/>
+            <Social/>
             <ComparisonLine userWidth={userWidth} generalWidth={generalWidth}/>
             <div className={cls.inner}>
                 <PetCompareList userPets={true} seletedPets={seletedUserPets}/>
@@ -53,12 +68,31 @@ const CompareSection: FC<T> = ({children}) => {
                         alt="trade-cricle"
                     />
                     <div onClick={compareHandler}>
-                        <Button>Сравнить</Button>
+                        <Button>Compare</Button>
                     </div>
                 </div>
                 <PetCompareList userPets={false} seletedPets={seletedGeneralPets}/>
             </div>
             <TextBlock/>
+            <Modal modalSmileContent='modalSmileContent' modalVisible={modalVisible} setModalVisible={modalHandler}>
+                <div className={cls.textModal}>{modalSmile[1]}</div>
+                <Image
+                    width={250}
+                    height={250}
+
+                    sizes="(max-width: 768px) width={50} height={50},(max-width: 1200px) width={250} height={250}"
+                    src={`/images/${modalSmile[0]}`}
+                    alt={modalSmile[0]}
+                    blurDataURL={`/images/${modalSmile[0]}`}
+                    placeholder="blur"
+                />
+                <div onClick={() => {
+                    setModalVisible(false)
+                }}>
+                    <Button white={true}>Close</Button>
+                </div>
+                <ComparisonLine userWidth={userWidth} generalWidth={generalWidth}/>
+            </Modal>
         </section>
     );
 };

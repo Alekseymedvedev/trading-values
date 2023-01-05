@@ -11,7 +11,7 @@ interface T {
 
 const Social: FC<T> = () => {
 
-    const shareUrl = 'http://localhost:3000/'
+    const shareUrl = 'https://trade-adopt-me.ru/'
 
     return (
         <ul className={cls.list +' _vr'}>

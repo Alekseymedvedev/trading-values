@@ -2,20 +2,15 @@ import React, {useState} from 'react';
 import cls from './chooseSection.module.scss'
 import PetCategoriesList from "../petСategoriesList/petСategoriesList";
 import PetList from "../petList/petList";
-import Link from "next/link";
-import Button from "../UI/Button/Button";
 
 
-const ChooseSection = ({category}:any) => {
 
+const ChooseSection = ({petList}:any) => {
     return (
      <>
-         <Link href='/'>
-             <Button blue={true}>HOME</Button>
-         </Link>
          <div className="flex">
              <PetCategoriesList />
-             <PetList petList={category}/>
+             <PetList petList={petList}/>
          </div>
      </>
     );

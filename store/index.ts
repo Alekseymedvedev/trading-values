@@ -1,13 +1,9 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {createWrapper} from "next-redux-wrapper";
-import {selectedPetsReducer, selectedPetsSlice} from "./reducers";
-// import {categoriesApi} from "./categoriesApi";
+import { configureStore} from "@reduxjs/toolkit";
+import {Context, createWrapper} from "next-redux-wrapper";
+import {selectedPetsReducer} from "./reducers";
 
-// const rootReducer = combineReducers({
-//     selectedPetsReducer
-// })
 
-export const makeStore = () =>
+export const makeStore = (context: Context) =>
     configureStore({
         reducer: {
             selectedPetsReducer,

@@ -2,10 +2,11 @@ import cls from './petCompareList.module.scss'
 import Image from "next/image";
 import Button from "../UI/Button/Button";
 import Link from "next/link";
-import {PetCategoriesArr} from "../../state/state";
 import {useActions} from "../../hooks/useActions";
 import {FC} from "react";
 import {IPetCompareType} from "../../types/type";
+import {petArr} from "../../state/petState";
+import {routesPage} from "../../routes/routes";
 
 interface T {
     seletedPets: IPetCompareType[];
@@ -13,8 +14,17 @@ interface T {
 }
 
 const PetCompareList: FC<T> = ({seletedPets, userPets}) => {
+    // const aaa = petArr.filter(item => item === item.parent)
+    // const categoriesArr=[]
+    // for (let i = 0; i < petArr.length; i++){
+    //     const obj ={
+    //         name: petArr[i].parent
+    //     }
+    //     categoriesArr.push(obj)
+    // }
+    // console.log(aaa)
     const {removeUserPet, removeGeneralPet, petChoose} = useActions()
-    const catUrl = PetCategoriesArr[0].name
+    const catUrl = petArr[0].parent
 
     const removeHandler = (item: any) => {
         const index = seletedPets.indexOf(item)
@@ -40,9 +50,11 @@ const PetCompareList: FC<T> = ({seletedPets, userPets}) => {
                     <Image
                         width={140}
                         height={140}
+                        src={item?.img.src && `/images/${item.img.src}`}
                         placeholder="blur"
-                        src={item.image}
-                        alt={item.name}
+                        blurDataURL={`/images/${item.img.src}`}
+                        alt={item?.img?.alt}
+                        title={item?.img?.title}
                     />
                         </span>
                         <span className={cls.status}>{item.status}</span>
@@ -56,7 +68,7 @@ const PetCompareList: FC<T> = ({seletedPets, userPets}) => {
                 seletedPets.length < 9 ?
                     <>
                         <li className={cls.item} onClick={() => petChoose(userPets)}>
-                            <Link href={`/categories/${catUrl}`}>
+                            <Link href={routesPage[0].path}>
                                 <Button plus={true}/>
                             </Link>
                         </li>
@@ -68,7 +80,6 @@ const PetCompareList: FC<T> = ({seletedPets, userPets}) => {
                     </>
                     : null
             }
-
         </ul>
     );
 };
