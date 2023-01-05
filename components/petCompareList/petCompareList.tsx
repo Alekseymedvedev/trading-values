@@ -14,18 +14,8 @@ interface T {
 }
 
 const PetCompareList: FC<T> = ({seletedPets, userPets}) => {
-    // const aaa = petArr.filter(item => item === item.parent)
-    // const categoriesArr=[]
-    // for (let i = 0; i < petArr.length; i++){
-    //     const obj ={
-    //         name: petArr[i].parent
-    //     }
-    //     categoriesArr.push(obj)
-    // }
-    // console.log(aaa)
-    const {removeUserPet, removeGeneralPet, petChoose} = useActions()
-    const catUrl = petArr[0].parent
 
+    const {removeUserPet, removeGeneralPet, petChoose} = useActions()
     const removeHandler = (item: any) => {
         const index = seletedPets.indexOf(item)
 
