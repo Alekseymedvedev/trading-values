@@ -18,7 +18,7 @@ const Social: FC<T> = () => {
             {
                 socialLink && socialLink.map(item=>
                     <li className={cls.item} key={item.id}>
-                        <item.teg url={shareUrl}>
+                        <item.teg url={shareUrl} title="Роблокс Адопт Ми трейды 2023 — сайт для проверки">
                             <Image
                                 width={30}
                                 height={30}

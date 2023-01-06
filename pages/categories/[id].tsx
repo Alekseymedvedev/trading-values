@@ -13,7 +13,7 @@ export async function getServerSideProps(context: any) {
 
 const PetCategory = ({petList}: any) => {
     return (
-        <MainLayout title="Главная страница">
+        <MainLayout title="Роблокс Адопт Ми трейды 2023 — сайт для проверки">
             <ChooseSection petList={petList}/>
         </MainLayout>
     );

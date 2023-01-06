@@ -3,7 +3,7 @@ import mainLayout from "../layout/mainLayout";
 
 export default function Document() {
     return (
-        <Html lang="en">
+        <Html dir="ltr" lang="ru-RU">
             <Head/>
             <body>
             <Main/>
