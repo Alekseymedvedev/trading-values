@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Home() {
     return (
-        <MainLayout title="Главная страница">
+        <MainLayout title="Роблокс Адопт Ми трейды 2023 — сайт для проверки">
             <CompareSection/>
         </MainLayout>
     )
