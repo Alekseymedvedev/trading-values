@@ -9,6 +9,7 @@ import {useActions} from "../../hooks/useActions";
 import {useAppSelector} from "../../hooks/useReduser";
 import Link from "next/link";
 
+
 interface T {
     petList: IPetType[]
 }
@@ -20,7 +21,6 @@ const PetList: FC<T> = ({petList}) => {
     const [select, setSelect] = useState(1)
     const [input, setInput] = useState(false)
     const [pet, setPet] = useState<IPetType>()
-    const [hideImage, setHideImage] = useState(false);
 
     const modalHandler = (value: boolean) => {
         setModalVisible(value)
@@ -70,9 +70,6 @@ const PetList: FC<T> = ({petList}) => {
                                 blurDataURL={`/images/${item.img.src}`}
                                 alt={item.name && item.name}
                                 placeholder="blur"
-                                onError={() => {
-                                    setHideImage(true);
-                                }}
                             />
                             <span className={cls.name}>{item?.name && item?.name}</span>
                         </div>

@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {useState} from 'react';
 import cls from './compareSection.module.scss'
 import Button from "../UI/Button/Button";
 import PetCompareList from "../petCompareList/petCompareList";
@@ -9,20 +9,17 @@ import img from '../../images/trade-circle.png'
 import TextBlock from "../textBlock/textBlock";
 import Social from "../social/social";
 import Modal from "../modal/modal";
-import Select from "../UI/Select/Select";
-import InputCheckbox from "../UI/inputCheckbox/inputCheckbox";
-import Link from "next/link";
+import sad from "../../public/smile/sad.png";
+import neutral from "../../public/smile/neutral.png";
+import excited from "../../public/smile/excited.png";
 
-interface T {
-    children?: any
-}
 
-const CompareSection: FC<T> = ({children}) => {
+const CompareSection = () => {
     const {seletedUserPets, seletedGeneralPets} = useAppSelector(state => state.selectedPetsReducer)
     const [userWidth, setUserWidth] = useState(50)
     const [generalWidth, setGeneralWidth] = useState(50)
     const [modalVisible, setModalVisible] = useState(false)
-    const [modalSmile, setModalSmile] = useState(['neutral.png', 'Fair'])
+    const [modalSmile, setModalSmile] = useState([neutral, 'Fair'])
 
     function compareHandler() {
         let userValue = 1;
@@ -39,9 +36,11 @@ const CompareSection: FC<T> = ({children}) => {
         let a = +userValue / +sum * 100
         let b = +generalValue / +sum * 100
         if (a > b) {
-            setModalSmile(['sad.png'])
+            setModalSmile([sad,'Big Lose!'])
         } else if (a < b) {
-            setModalSmile(['excited.png', 'Big Win!'])
+            setModalSmile([excited,'Big Win!' ])
+        }else{
+            setModalSmile([neutral, 'Fair'])
         }
         setUserWidth(a)
         setGeneralWidth(b)
@@ -77,14 +76,13 @@ const CompareSection: FC<T> = ({children}) => {
             <Modal modalSmileContent='modalSmileContent' modalVisible={modalVisible} setModalVisible={modalHandler}>
                 <div className={cls.textModal}>{modalSmile[1]}</div>
                 <Image
-                    width={250}
-                    height={250}
-
-                    sizes="(max-width: 768px) width={50} height={50},(max-width: 1200px) width={250} height={250}"
-                    src={`/images/${modalSmile[0]}`}
-                    alt={modalSmile[0]}
-                    blurDataURL={`/images/${modalSmile[0]}`}
-                    placeholder="blur"
+                    width={150}
+                    height={150}
+                    // sizes="(max-width: 768px) width={50} height={50},(max-width: 1200px) width={250} height={250}"
+                    src={modalSmile[0]}
+                    alt={modalSmile[1]}
+                    // blurDataURL={`/images/${modalSmile[0]}`}
+                    // placeholder="blur"
                 />
                 <div onClick={() => {
                     setModalVisible(false)
