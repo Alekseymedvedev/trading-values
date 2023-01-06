@@ -1,5 +1,5 @@
 import MainLayout from "../../layout/mainLayout";
-import ChooseSection from "../../components/ chooseSection/chooseSection";
+import ChooseSection from "../../components/chooseSection/chooseSection";
 import React from "react";
 import {petArr} from "../../state/petState";
 

@@ -19,7 +19,7 @@ const CompareSection = () => {
     const [userWidth, setUserWidth] = useState(50)
     const [generalWidth, setGeneralWidth] = useState(50)
     const [modalVisible, setModalVisible] = useState(false)
-    const [modalSmile, setModalSmile] = useState([neutral, 'Fair'])
+    const [modalSmile, setModalSmile] = useState([neutral, 'Fair', true])
 
     function compareHandler() {
         let userValue = 1;
@@ -36,11 +36,11 @@ const CompareSection = () => {
         let a = +userValue / +sum * 100
         let b = +generalValue / +sum * 100
         if (a > b) {
-            setModalSmile([sad,'Big Lose!'])
+            setModalSmile([sad, 'Big Lose!', true])
         } else if (a < b) {
-            setModalSmile([excited,'Big Win!' ])
-        }else{
-            setModalSmile([neutral, 'Fair'])
+            setModalSmile([excited, 'Big Win!', true])
+        } else {
+            setModalSmile([neutral, 'Fair', true])
         }
         setUserWidth(a)
         setGeneralWidth(b)
@@ -74,15 +74,12 @@ const CompareSection = () => {
             </div>
             <TextBlock/>
             <Modal modalSmileContent='modalSmileContent' modalVisible={modalVisible} setModalVisible={modalHandler}>
-                <div className={cls.textModal}>{modalSmile[1]}</div>
+                <div className={cls.textModal}>{`${modalSmile[1]}`}</div>
                 <Image
                     width={150}
                     height={150}
-                    // sizes="(max-width: 768px) width={50} height={50},(max-width: 1200px) width={250} height={250}"
                     src={modalSmile[0]}
-                    alt={modalSmile[1]}
-                    // blurDataURL={`/images/${modalSmile[0]}`}
-                    // placeholder="blur"
+                    alt={`${modalSmile[1]}`}
                 />
                 <div onClick={() => {
                     setModalVisible(false)

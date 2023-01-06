@@ -39,13 +39,13 @@ export const socialLink = [
     {id: 5, teg: VKShareButton, icon: vk, alt: 'VK'},
 ]
 
-export const textArr = [
-    {
-        id: 1,
-        title: 'What Is The Purpose Of This Website?',
-        text: 'AdoptMeTradingValues.io exists to help AdoptMe players know the pros and cons of trading. Is trade a big win? Is it fair? Just add your pet or other items to the trading grid on this website, and you’ll get an answer right away. You can also find other details, tips, and techniques you need to know.'
-    },
-]
+// export const textArr = [
+//     {
+//         id: 1,
+//         title: 'What Is The Purpose Of This Website?',
+//         text: 'AdoptMeTradingValues.io exists to help AdoptMe players know the pros and cons of trading. Is trade a big win? Is it fair? Just add your pet or other items to the trading grid on this website, and you’ll get an answer right away. You can also find other details, tips, and techniques you need to know.'
+//     },
+// ]
 
 
 
