@@ -19,7 +19,7 @@ const CompareSection = () => {
     const [userWidth, setUserWidth] = useState(50)
     const [generalWidth, setGeneralWidth] = useState(50)
     const [modalVisible, setModalVisible] = useState(false)
-    const [modalSmile, setModalSmile] = useState([neutral, 'Fair', true])
+    const [modalSmile, setModalSmile] = useState([neutral, 'Fair','neutr'])
 
     function compareHandler() {
         let userValue = 1;
@@ -36,11 +36,11 @@ const CompareSection = () => {
         let a = +userValue / +sum * 100
         let b = +generalValue / +sum * 100
         if (a > b) {
-            setModalSmile([sad, 'Big Lose!', true])
+            setModalSmile([sad, 'Big Lose!','lose'])
         } else if (a < b) {
-            setModalSmile([excited, 'Big Win!', true])
+            setModalSmile([excited, 'Big Win!','win'])
         } else {
-            setModalSmile([neutral, 'Fair', true])
+            setModalSmile([neutral, 'Fair','neutr'])
         }
         setUserWidth(a)
         setGeneralWidth(b)
@@ -55,6 +55,7 @@ const CompareSection = () => {
             <Social/>
             <ComparisonLine userWidth={userWidth} generalWidth={generalWidth}/>
             <div className={cls.inner}>
+
                 <PetCompareList userPets={true} seletedPets={seletedUserPets}/>
                 <div className={cls.box}>
                     <div className={cls.text}>TRADE</div>
@@ -75,11 +76,17 @@ const CompareSection = () => {
             <TextBlock/>
             <Modal modalSmileContent='modalSmileContent' modalVisible={modalVisible} setModalVisible={modalHandler}>
                 <div className={cls.textModal}>{`${modalSmile[1]}`}</div>
+                {
+                    (modalSmile[2] === 'win') ? <audio autoPlay={true} src="/audio/win.mp3"></audio> :
+                        (modalSmile[2] === 'lose') ? <audio autoPlay={true} src="/audio/lose.mp3"></audio> :
+                            <audio autoPlay={true} src="/audio/btn-sound-2.mp3"></audio>
+                }
+
                 <Image
                     width={150}
                     height={150}
-                    src={`${modalSmile[0]}`}
-                    alt={`${modalSmile[1]}`}
+                    src={modalSmile[0]}
+                    alt={`/${modalSmile[1]}`}
                 />
                 <div onClick={() => {
                     setModalVisible(false)
