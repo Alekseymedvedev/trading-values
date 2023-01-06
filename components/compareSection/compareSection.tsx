@@ -78,7 +78,7 @@ const CompareSection = () => {
                 <Image
                     width={150}
                     height={150}
-                    src={modalSmile[0]}
+                    src={`${modalSmile[0]}`}
                     alt={`${modalSmile[1]}`}
                 />
                 <div onClick={() => {
