@@ -1,10 +1,7 @@
 import cls from './resultSection.module.scss'
-
 import {useAppSelector} from "../../hooks/useReduser";
 import React, {useMemo, useState} from "react";
-import sad from "../../public/smile/sad.png";
 import neutral from "../../public/smile/neutral.png";
-import excited from "../../public/smile/excited.png";
 import ComparisonLine from "../comparisonLine/comparisonLine";
 import Button from "../UI/Button/Button";
 import Image from "next/image";
