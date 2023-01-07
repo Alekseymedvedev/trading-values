@@ -27,10 +27,10 @@ const ComparisonLine: FC<T> = ({userWidth, generalWidth}) => {
         <div className="_vr">
             <div className={cls.inner}>
                 <div className={userClasses.join(' ')} style={{width: userWidth + '%'}}>
-                    <span>Your Value</span>
+                    <span>Ваша ценность</span>
                 </div>
                 <div className={generalClasses.join(' ')} style={{width: generalWidth + '%'}}>
-                    <span>Their Value</span>
+                    <span>Их ценность</span>
                 </div>
             </div>
         </div>
