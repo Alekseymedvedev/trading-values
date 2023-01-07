@@ -68,7 +68,7 @@ const CompareSection = () => {
                         alt="trade-cricle"
                     />
                     <div onClick={compareHandler}>
-                        <Button>Compare</Button>
+                        <Button>Сравнить</Button>
                     </div>
                 </div>
                 <PetCompareList userPets={false} seletedPets={seletedGeneralPets}/>
