@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import cls from './petList.module.scss'
 import {IPetType} from "../../types/type";
 import Image from "next/image";
@@ -8,6 +8,8 @@ import Button from "../UI/Button/Button";
 import {useActions} from "../../hooks/useActions";
 import {useAppSelector} from "../../hooks/useReduser";
 import Link from "next/link";
+import InputSearch from "../UI/inputSearch/inputSearch";
+import {petArr} from "../../state/petState";
 
 
 interface T {
@@ -20,10 +22,19 @@ const PetList: FC<T> = ({petList}) => {
     const [modalVisible, setModalVisible] = useState(false)
     const [select, setSelect] = useState(1)
     const [input, setInput] = useState(false)
+    const [inputSearch, setInputSearch] = useState('')
     const [pet, setPet] = useState<IPetType>()
+    const [state,setState]=useState<IPetType[]>([])
 
+    useEffect(()=>{
+        setState(petList)
+    },[petList])
     const modalHandler = (value: boolean) => {
         setModalVisible(value)
+    }
+    const inputSearchHandler = () => {
+        const arr= petArr.filter(item => item.name.toLowerCase().includes(inputSearch.toLowerCase()))
+        setState(arr)
     }
 
     const addPetHandler = () => {
@@ -50,10 +61,15 @@ const PetList: FC<T> = ({petList}) => {
         setModalVisible(false)
     }
     return (
-        <>
+        <div className={cls.box}>
+            <div className={cls.search}>
+            <InputSearch value={inputSearch} onChange={setInputSearch}/>
+            <button className={cls.btn} onClick={()=>{inputSearchHandler()}}>Найти</button>
+            </div>
             <div className={cls.list}>
+
                 {
-                    petList && petList.map((item: any) =>
+                    state && state.map((item: any) =>
                         <div
                             className={cls.item}
                             key={item?.id}
@@ -92,7 +108,7 @@ const PetList: FC<T> = ({petList}) => {
                     </div>
                 </div>
             </Modal>
-        </>
+        </div>
     );
 };
 

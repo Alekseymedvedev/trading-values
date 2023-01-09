@@ -1,4 +1,12 @@
 @import "styles/colors";
+.box{
+  width: 100%;
+}
+.search{
+  margin-bottom: 24px;
+  display: flex;
+  gap: 8px;
+}
 .list{
   width: 100%;
   padding: 8px;
@@ -29,4 +37,9 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+.btn{
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  cursor: pointer;
 }
