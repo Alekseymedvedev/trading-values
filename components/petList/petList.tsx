@@ -33,7 +33,7 @@ const PetList: FC<T> = ({petList}) => {
         setModalVisible(value)
     }
     const inputSearchHandler = () => {
-        const arr= petArr.filter(item => item.name.toLowerCase().includes(inputSearch.toLowerCase()))
+        const arr = petArr.filter(item => item.name.toLowerCase().includes(inputSearch.toLowerCase()))
         setState(arr)
     }
 
@@ -63,7 +63,7 @@ const PetList: FC<T> = ({petList}) => {
     return (
         <div className={cls.box}>
             <div className={cls.search}>
-            <InputSearch value={inputSearch} onChange={setInputSearch}/>
+            <InputSearch value={inputSearch} onChange={setInputSearch} inputSearchHandler={inputSearchHandler}/>
             <button className={cls.btn} onClick={()=>{inputSearchHandler()}}>Найти</button>
             </div>
             <div className={cls.list}>
