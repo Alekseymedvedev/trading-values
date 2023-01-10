@@ -13,7 +13,7 @@ const ResultSection = () => {
     const {seletedUserPets, seletedGeneralPets} = useAppSelector(state => state.selectedPetsReducer)
     const [userWidth, setUserWidth] = useState(50)
     const [generalWidth, setGeneralWidth] = useState(50)
-    const [content, setContent] = useState([neutral, 'Fair', 'neutr'])
+    const [content, setContent] = useState([neutral, 'Справедливо', 'neutr'])
     useCompare(seletedUserPets, seletedGeneralPets,setUserWidth,setGeneralWidth,setContent)
 
 
@@ -33,7 +33,7 @@ const ResultSection = () => {
                 alt={`/${content[1]}`}
             />
             <Link href="/">
-                <Button white={true}>Close</Button>
+                <Button white={true}>Закрыть</Button>
             </Link>
             <ComparisonLine userWidth={userWidth} generalWidth={generalWidth}/>
         </section>

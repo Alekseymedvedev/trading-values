@@ -29,11 +29,11 @@ export const useCompare = (
 
 
         if (setContent && (a > b)) {
-            setContent([sad, 'Big Lose!', 'lose'])
+            setContent([sad, 'Большой проигрыш!', 'lose'])
         } else if (setContent && (a < b)) {
-            setContent([excited, 'Big Win!', 'win'])
+            setContent([excited, 'Большая победа!', 'win'])
         } else {
-            setContent && setContent([neutral, 'Fair', 'neutr'])
+            setContent && setContent([neutral, 'Справедливо', 'neutr'])
         }
     }, [seletedGeneralPets, seletedUserPets]);
 }

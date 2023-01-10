@@ -24,7 +24,7 @@ const PetList: FC<T> = ({petList}) => {
     const [input, setInput] = useState(false)
     const [inputSearch, setInputSearch] = useState('')
     const [pet, setPet] = useState<IPetType>()
-    const [state,setState]=useState<IPetType[]>([])
+    const [state,setState]=useState<any>([])
 
     useEffect(()=>{
         setState(petList)
