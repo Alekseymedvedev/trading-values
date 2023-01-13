@@ -11,6 +11,8 @@ import Social from "../social/social";
 
 import {useCompare} from "../../hooks/useCompare";
 import Link from "next/link";
+import Script from "next/script";
+import Advertisement from "../advertisement/advertisement";
 
 
 const CompareSection = () => {
@@ -18,10 +20,13 @@ const CompareSection = () => {
     const [userWidth, setUserWidth] = useState(50)
     const [generalWidth, setGeneralWidth] = useState(50)
 
-    useCompare(seletedUserPets, seletedGeneralPets,setUserWidth,setGeneralWidth)
+    useCompare(seletedUserPets, seletedGeneralPets, setUserWidth, setGeneralWidth)
     return (
         <section className={cls.section}>
             <Social/>
+
+            <Advertisement/>
+
             <ComparisonLine userWidth={userWidth} generalWidth={generalWidth}/>
             <div className={cls.inner}>
 

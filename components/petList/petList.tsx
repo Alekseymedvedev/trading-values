@@ -10,6 +10,7 @@ import {useAppSelector} from "../../hooks/useReduser";
 import Link from "next/link";
 import InputSearch from "../UI/inputSearch/inputSearch";
 import {petArr} from "../../state/petState";
+import Advertisement from "../advertisement/advertisement";
 
 
 interface T {
@@ -24,11 +25,11 @@ const PetList: FC<T> = ({petList}) => {
     const [input, setInput] = useState(false)
     const [inputSearch, setInputSearch] = useState('')
     const [pet, setPet] = useState<IPetType>()
-    const [state,setState]=useState<any>([])
+    const [state, setState] = useState<any>([])
 
-    useEffect(()=>{
+    useEffect(() => {
         setState(petList)
-    },[petList])
+    }, [petList])
     const modalHandler = (value: boolean) => {
         setModalVisible(value)
     }
@@ -62,12 +63,17 @@ const PetList: FC<T> = ({petList}) => {
     }
     return (
         <div className={cls.box}>
-            <div className={cls.search}>
-            <InputSearch value={inputSearch} onChange={setInputSearch} inputSearchHandler={inputSearchHandler}/>
-            <button className={cls.btn} onClick={()=>{inputSearchHandler()}}>Найти</button>
+            <div className={cls.searchAndAdvertisement}>
+                <Advertisement/>
+                <div className={cls.search}>
+                    <InputSearch value={inputSearch} onChange={setInputSearch} inputSearchHandler={inputSearchHandler}/>
+                    <button className={cls.btn} onClick={() => {
+                        inputSearchHandler()
+                    }}>Найти
+                    </button>
+                </div>
             </div>
             <div className={cls.list}>
-
                 {
                     state && state.map((item: any) =>
                         <div

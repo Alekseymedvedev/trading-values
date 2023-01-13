@@ -42,4 +42,12 @@
   background-color: #f2f2f2;
   border-radius: 5px;
   cursor: pointer;
+
+}
+@media (max-width: 980px){
+  .searchAndAdvertisement{
+    position: absolute;
+    top: -41px;
+    z-index: 1000;
+  }
 }

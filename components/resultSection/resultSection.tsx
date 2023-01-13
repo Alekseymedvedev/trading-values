@@ -7,6 +7,7 @@ import Button from "../UI/Button/Button";
 import Image from "next/image";
 import Link from "next/link";
 import {useCompare} from "../../hooks/useCompare";
+import Advertisement from "../advertisement/advertisement";
 
 
 const ResultSection = () => {
@@ -25,6 +26,8 @@ const ResultSection = () => {
                     (content[2] === 'lose') ? <audio autoPlay={true} src="/audio/lose.mp3"></audio> :
                         <audio autoPlay={true} src="/audio/btn-sound-2.mp3"></audio>
             }
+
+            <Advertisement/>
 
             <Image
                 width={150}

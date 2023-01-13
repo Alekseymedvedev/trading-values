@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import Head from "next/head";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
+import Script from 'next/script';
 
 
 interface MainLayoutProps {
@@ -21,6 +22,32 @@ const MainLayout: FC<MainLayoutProps> = ({children, title,content}) => {
                 <link rel="icon" href="/favicon.png"/>
                 <meta charSet="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+                <Script></Script>
+                <Script src="https://yandex.ru/ads/system/context.js" async></Script>
+                <Script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                    window.yaContextCb=window.yaContextCb||[]
+   window.yaContextCb.push(()=>{
+                    Ya.Context.AdvManager.render({
+                        type: 'fullscreen',
+                        platform: 'touch',
+                        blockId: 'R-A-2092130-1'
+                    })
+                })
+     window.yaContextCb.push(()=>{
+                    Ya.Context.AdvManager.render({
+                        type: 'floorAd',
+                        blockId: 'R-A-2092130-2'
+                    })
+                })
+              `,
+                    }}
+                />
+
+
+
             </Head>
 
             <div className="container">
