@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {useCompare} from "../../hooks/useCompare";
 import Advertisement from "../advertisement/advertisement";
+import Script from "next/script";
 
 
 const ResultSection = () => {
@@ -27,7 +28,20 @@ const ResultSection = () => {
                         <audio autoPlay={true} src="/audio/btn-sound-2.mp3"></audio>
             }
 
-            <Advertisement/>
+            <div id="yandex_rtb_R-A-2092130-3"></div>
+
+            <Script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                   window.yaContextCb.push(()=>{
+            Ya.Context.AdvManager.render({
+                renderTo: 'yandex_rtb_R-A-2092130-3',
+                blockId: 'R-A-2092130-3'
+            })
+
+              `,
+                }}
+            />
 
             <Image
                 width={150}

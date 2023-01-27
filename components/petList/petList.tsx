@@ -11,6 +11,7 @@ import Link from "next/link";
 import InputSearch from "../UI/inputSearch/inputSearch";
 import {petArr} from "../../state/petState";
 import Advertisement from "../advertisement/advertisement";
+import Script from "next/script";
 
 
 interface T {
@@ -64,7 +65,20 @@ const PetList: FC<T> = ({petList}) => {
     return (
         <div className={cls.box}>
             <div className={cls.searchAndAdvertisement}>
-                <Advertisement/>
+                <div id="yandex_rtb_R-A-2092130-3"></div>
+
+                <Script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+               window.yaContextCb.push(()=>{
+            Ya.Context.AdvManager.render({
+                renderTo: 'yandex_rtb_R-A-2092130-3',
+                blockId: 'R-A-2092130-3'
+            })
+
+              `,
+                    }}
+                />
                 <div className={cls.search}>
                     <InputSearch value={inputSearch} onChange={setInputSearch} inputSearchHandler={inputSearchHandler}/>
                     <button className={cls.btn} onClick={() => {

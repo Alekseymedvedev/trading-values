@@ -25,7 +25,22 @@ const CompareSection = () => {
         <section className={cls.section}>
             <Social/>
 
-            <Advertisement/>
+            <div id="yandex_rtb_R-A-2092130-3"></div>
+
+            <Script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                    window.yaContextCb=window.yaContextCb||[]
+                    window.yaContextCb.push(()=>{
+                    Ya.Context.AdvManager.render({
+                        renderTo: 'yandex_rtb_R-A-2092130-3',
+                        blockId: 'R-A-2092130-3'
+                    })
+                })
+
+              `,
+                }}
+            />
 
             <ComparisonLine userWidth={userWidth} generalWidth={generalWidth}/>
             <div className={cls.inner}>

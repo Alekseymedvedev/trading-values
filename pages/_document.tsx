@@ -1,5 +1,7 @@
 import {Html, Head, Main, NextScript} from 'next/document'
 import mainLayout from "../layout/mainLayout";
+import Script from "next/script";
+import React from "react";
 
 export default function Document() {
     return (
@@ -25,6 +27,40 @@ export default function Document() {
                             accurateTrackBounce:true,
                             webvisor:true
                        });
+
+              `,
+                }}
+            />
+            <Script
+                dangerouslySetInnerHTML={{
+                    __html: `
+window.yaContextCb=window.yaContextCb||[]
+              `,
+                }}
+            />
+            <Script src="https://yandex.ru/ads/system/context.js" async/>
+            <Script
+                dangerouslySetInnerHTML={{
+                    __html: `
+           
+window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    type: 'fullscreen',    
+    platform: 'touch',
+    blockId: 'R-A-2092130-1'
+  })
+              `,
+                }}
+            />
+            <Script
+                dangerouslySetInnerHTML={{
+                    __html: `
+           window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    type: 'fullscreen',    
+    platform: 'touch',
+    blockId: 'R-A-2092130-1'
+  })
 
               `,
                 }}
