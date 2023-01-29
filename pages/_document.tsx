@@ -31,40 +31,7 @@ export default function Document() {
               `,
                 }}
             />
-            <Script
-                dangerouslySetInnerHTML={{
-                    __html: `
-window.yaContextCb=window.yaContextCb||[]
-              `,
-                }}
-            />
-            <Script src="https://yandex.ru/ads/system/context.js" async/>
-            <Script
-                dangerouslySetInnerHTML={{
-                    __html: `
-           
-window.yaContextCb.push(()=>{
-  Ya.Context.AdvManager.render({
-    type: 'fullscreen',    
-    platform: 'touch',
-    blockId: 'R-A-2092130-1'
-  })
-              `,
-                }}
-            />
-            <Script
-                dangerouslySetInnerHTML={{
-                    __html: `
-           window.yaContextCb.push(()=>{
-  Ya.Context.AdvManager.render({
-    type: 'fullscreen',    
-    platform: 'touch',
-    blockId: 'R-A-2092130-1'
-  })
 
-              `,
-                }}
-            />
             <noscript>
                 <div>
                     <img src="https://mc.yandex.ru/watch/92033844"  style={{position: 'absolute', left: '-9999px'}}

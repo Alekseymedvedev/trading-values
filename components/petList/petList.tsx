@@ -67,7 +67,7 @@ const PetList: FC<T> = ({petList}) => {
             <div className={cls.searchAndAdvertisement}>
                 <div id="yandex_rtb_R-A-2092130-3"></div>
 
-                <Script
+                <script
                     dangerouslySetInnerHTML={{
                         __html: `
                window.yaContextCb.push(()=>{
